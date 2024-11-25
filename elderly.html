@@ -37,15 +37,7 @@
             justify-content: center;
             align-items: center;
         }
-        button {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            color: white;
-            width: 200px;
-        }
+     
         .blue-button {
             background-color: #007bff;
         }
@@ -126,16 +118,17 @@
 
     <div id="mainPage" class="content-container">
         <div class="button-container">
-            <button class="blue-button" onclick="showElderPage()">長者</button>
-            <button class="green-button" onclick="showVolunteerPage()">義工</button>
+            <button onclick="showElderPage()"><img src="elderly.png"/></button>
+            <button onclick="showVolunteerPage()"><img src="volunteer.png"/></button>
         </div>
     </div>
 
     <div id="elderPage" class="content-container">
         <div class="button-container">
-            <button class="green-button">通話</button>
-            <button class="yellow-button">生活問題</button>
-            <button class="red-button">緊急求助</button>
+            <p style="background-image: url('blackground.png');">
+            <button onclick="location.href='map.html'"><img src="talk.png"/></button>
+            <button onclick="location.href='map.html'"><img src="need.png"/></button>
+            <button onclick="location.href='map.html'"><img src="emergency.png"/></button>
             
         </div>
     </div>
@@ -187,10 +180,6 @@
             elderTitle.style.display = 'none';
         }
 
-        function showMapPage(){
-          
-            
-        }
         
     </script>
 </body>
