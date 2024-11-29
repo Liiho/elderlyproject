@@ -20,6 +20,7 @@
             width: 100%;
             height: 100vh;
         }
+        
       
         
     </style>
@@ -64,15 +65,53 @@
         if(circle) {
             map.removeLayer(circle)
         }
-
-        marker = L.marker([lat, long])
+        var redIcon = L.icon({
+        iconUrl: 'redmarker.png', // Replace with the path to your custom icon image
+        iconSize: [50, 50], 
+        iconAnchor: [12, 41], 
+        popupAnchor: [1, -34], 
+});
+        var blueIcon = L.icon({
+        iconUrl: 'bluemarker.png', // Replace with the path to your custom icon image
+        iconSize: [50, 50], 
+        iconAnchor: [12, 41], 
+        popupAnchor: [1, -34], 
+});
+        marker = L.marker([lat, long],{ icon: blueIcon })
         circle = L.circle([lat, long], {radius: accuracy})
 
-        var featureGroup = L.featureGroup([marker, circle]).addTo(map)
+        marker2 = L.marker([22.378189492079002, 114.17724056757734],{ icon: redIcon })
+        circle2 = L.circle([22.378189492079002, 114.17724056757734], {radius: 0})
 
+        marker3 = L.marker([22.38742622867109, 114.20248548232772],{ icon: redIcon })
+        circle3 = L.circle([22.38742622867109, 114.20248548232772], {radius: 0})
+
+        marker4 = L.marker([22.39752000161909, 114.19246187676768],{ icon: redIcon })
+        circle4 = L.circle([22.39752000161909, 114.19246187676768], {radius: 0})
+
+        marker5 = L.marker([22.36287754589094, 114.17281833452677],{ icon: redIcon })
+        circle5 = L.circle([22.36287754589094, 114.17281833452677], {radius: 0})
+
+        marker6 = L.marker([22.380517989922012, 114.21395080930934],{ icon: redIcon })
+        circle6 = L.circle([22.380517989922012, 114.21395080930934], {radius: 0})
+
+        var featureGroup = L.featureGroup([marker, circle]).addTo(map)
+        var featureGroup2 = L.featureGroup([marker2, circle2]).addTo(map)
+        var featureGroup3 = L.featureGroup([marker3, circle3]).addTo(map)
+        var featureGroup4 = L.featureGroup([marker4, circle4]).addTo(map)
+        var featureGroup5 = L.featureGroup([marker5, circle5]).addTo(map)
+        var featureGroup6 = L.featureGroup([marker6, circle6]).addTo(map)
+        
+        map.fitBounds(featureGroup2.getBounds())
+        map.fitBounds(featureGroup3.getBounds())
+        map.fitBounds(featureGroup4.getBounds())
+        map.fitBounds(featureGroup5.getBounds())
+        map.fitBounds(featureGroup6.getBounds())
         map.fitBounds(featureGroup.getBounds())
 
+        
         console.log("Your coordinate is: Lat: "+ lat +" Long: "+ long+ " Accuracy: "+ accuracy)
     }
+
 
 </script>
